@@ -6,17 +6,21 @@ app.factory("Activity", function ($timeout,$log) {
         this.person = person || "";
         this.taetigkeit = taetigkeit || "";
         this.startTime = 0;
-        this.dauer = 0;
+        this.sum = 0;
+        this.time_running = false;
 
         this.startActivity = () => {
             $log.debug("Zeit läuft.");
+
+            this.time_running = true;
             this.startTime = new Date();
         };
 
         this.stopAcitivty = () => {
             $log.debug("Zeit gestoppt.");
 
-            this.dauer += Date.now() - this.startTime;
+            this.time_running = false;
+            this.sum += Date.now() - this.startTime;
             this.startTime = 0;
 
         };
@@ -24,9 +28,9 @@ app.factory("Activity", function ($timeout,$log) {
         this.zeitBerechnen = () => {
 
             if (this.startTime != 0){
-                return this.dauer + Date.now() - this.startTime; //wenn läuft --> DAZU GEBEN
+                return this.sum + Date.now() - this.startTime; //wenn läuft --> DAZU GEBEN
             } else {
-                return this.dauer; //wenn nicht läuft --> GESAMTDAUER
+                return this.sum; //wenn nicht läuft --> GESAMTsum
             }
         };
 

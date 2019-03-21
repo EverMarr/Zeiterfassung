@@ -11,13 +11,13 @@
             <p>{{ $ctrl.activityItem.zeitBerechnen() | date : 'HH:mm:ss' : 'UTC' }}</p>
         </div>
         <div layout="row" flex="10" layout-align="center center">
-            <md-button class="md-primary" ng-click="$ctrl.showInputActivity()">
+            <md-button class="md-primary">
                 <md-icon md-font-icon="material-icons" ng-click="$ctrl.deleteActivity()">delete</md-icon>
             </md-button>
-            <md-button class="md-fab md-mini md-primary" ng-click="$ctrl.showPlayIcon()" ng-hide="$ctrl.time_running">
+            <md-button class="md-fab md-mini md-primary" ng-click="$ctrl.start()" ng-hide="$ctrl.activityItem.time_running">
                 <md-icon md-font-icon="material-icons">play_arrow</md-icon>
             </md-button>
-            <md-button class="md-fab md-mini md-primary" ng-click="$ctrl.showPauseIcon()" ng-hide="!$ctrl.time_running">
+            <md-button class="md-fab md-mini md-primary" ng-click="$ctrl.stop()" ng-hide="!$ctrl.activityItem.time_running">
                 <md-icon md-font-icon="material-icons">pause</md-icon>
             </md-button>
         </div>

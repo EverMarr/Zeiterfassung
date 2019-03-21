@@ -34,7 +34,10 @@ app.controller("ActivityListeController", function ($log, Activity, $timeout, St
     this.gesamtDauer = () => {
         if(this.activities.length > 0){
             let sum = 0;
-            for (let a of this.activities) sum += a.zeitBerechnen();
+            for (let a of this.activities){
+                sum += a.zeitBerechnen();
+            }
+
             return sum;
         }
 

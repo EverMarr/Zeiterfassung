@@ -27,6 +27,5 @@ app.controller("ZeiterfassungController", function ($log, Activity) {
     this.showInputActivity = () => {
         $log.debug('Show Activity-Input');
         this.show_input = !this.show_input;
-        //this.activity = new Activity();
     }
 });

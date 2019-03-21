@@ -14,7 +14,7 @@ app.controller("ActivityEditorController", function ($log, Activity) {
     this.activity = new Activity();
 
     this.addActivity = () => {
-        this.activity = new Activity(this.person, this.taetigkeit, new Date());
+        this.activity = new Activity(this.person, this.taetigkeit);
         $log.debug(this.activity);
         this.newActivity({ activity: this.activity});
         this.cancelActivity();

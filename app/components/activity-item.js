@@ -3,7 +3,7 @@
 app.component("activityItem", {
     templateUrl: "components/activity-item.html",
     controller: "ActivityItemController",
-    bindings: { activityItem : "<", activityBeendet : "&" }
+    bindings: { activityItem : "<", activityBeendet : "&" } //ausgang time hinzufügen
 });
 
 
@@ -11,29 +11,17 @@ app.controller("ActivityItemController", function ($log, Activity, $timeout) {
 
     $log.debug("ActivityItemController()");
 
-
-
-    this.newActivity = () => {
-        this.activity = new Activity(this.person, this.taetigkeit);
-        $log.debug(this.activity);
-        this.newActivity({ activity: this.activity});
-
-    };
-
     this.deleteActivity = () => {
         this.activityBeendet({activityItem : this.activityItem});
         $log.debug(this.activityItem);
     };
 
-    this.time_running = false;
-
-    this.showPlayIcon = () => {
-        this.time_running = true;
-        this.activityItem.startActivity()
+    this.start = () => {
+        $log.debug(this.timeStarted);
+        this.activityItem.startActivity();
     };
 
-    this.showPauseIcon = () => {
-        this.time_running = false;
+    this.stop = () => {
         this.activityItem.stopAcitivty();
     };
 

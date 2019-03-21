@@ -1,0 +1,25 @@
+<hr>
+<div flex layout-padding>
+    <div layout="row">
+        <div flex="25">
+            <p>{{ $ctrl.activityItem.person }}</p>
+        </div>
+        <div flex="40">
+            <p>{{ $ctrl.activityItem.taetigkeit }}</p>
+        </div>
+        <div flex="25">
+            <p>{{ $ctrl.activityItem.zeitBerechnen() | date : 'HH:mm:ss' : 'UTC' }}</p>
+        </div>
+        <div layout="row" flex="10" layout-align="center center">
+            <md-button class="md-primary" ng-click="$ctrl.showInputActivity()">
+                <md-icon md-font-icon="material-icons" ng-click="$ctrl.deleteActivity()">delete</md-icon>
+            </md-button>
+            <md-button class="md-fab md-mini md-primary" ng-click="$ctrl.showPlayIcon()" ng-hide="$ctrl.time_running">
+                <md-icon md-font-icon="material-icons">play_arrow</md-icon>
+            </md-button>
+            <md-button class="md-fab md-mini md-primary" ng-click="$ctrl.showPauseIcon()" ng-hide="!$ctrl.time_running">
+                <md-icon md-font-icon="material-icons">pause</md-icon>
+            </md-button>
+        </div>
+    </div>
+</div>

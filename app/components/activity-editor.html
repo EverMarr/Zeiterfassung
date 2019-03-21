@@ -1,0 +1,33 @@
+<hr>
+<div flex layout-padding>
+    <form name="$ctrl.form">
+        <div layout="row">
+            <md-input-container flex="25">
+                <label>Person</label>
+                <input ng-model="$ctrl.person" name="person" required minlength="3">
+                <div ng-messages="$ctrl.form.person.$error">
+                    <div ng-message="required">Es muss eine Person eingegeben werden.</div>
+                    <div ng-message="minlength">Die Person muss mindestens 3 Zeichen lang sein.</div>
+                </div>
+            </md-input-container>
+            <md-input-container flex="65">
+                <label>Tätigkeit</label>
+                <input ng-model="$ctrl.taetigkeit" name="taetigkeit" required minlength="3">
+                <div ng-messages="$ctrl.form.taetigkeit.$error">
+                    <div ng-message="required">Es muss eine Tätigkeit eingegeben werden.</div>
+                    <div ng-message="minlength">Die Tätigkeit muss mindestens 3 Zeichen lang sein.</div>
+                </div>
+            </md-input-container>
+            <div flex="5">
+                <md-button class="md-icon-button" ng-click="$ctrl.cancelActivity()">
+                    <md-icon md-font-icon="material-icons">delete</md-icon>
+                </md-button>
+            </div>
+            <div flex="5">
+                <md-button class="md-fab md-mini md-primary" ng-click="$ctrl.addActivity()" ng-disabled="$ctrl.form.$invalid">
+                    <md-icon md-font-icon="material-icons">check</md-icon>
+                </md-button>
+            </div>
+        </div>
+    </form>
+</div>

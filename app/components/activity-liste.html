@@ -1,0 +1,36 @@
+<div>
+    <div flex layout-padding>
+        <div layout="row">
+            <div flex="25">
+                <h3>Person</h3>
+            </div>
+            <div flex="40">
+                <h3>Tätigkeit</h3>
+            </div>
+            <div flex="25">
+                <h3>Dauer</h3>
+            </div>
+            <div flex="5"></div>
+            <div flex="5" layout-align="center center">
+                <md-button class="md-fab md-mini md-primary" ng-click="$ctrl.showInputActivity()" ng-hide="$ctrl.show_input">
+                    <md-icon md-font-icon="material-icons">add</md-icon>
+                </md-button>
+            </div>
+        </div>
+    </div>
+    <activity-editor new-activity="$ctrl.addNewActivity(activity); $ctrl.showInputActivity()" ng-show="$ctrl.show_input"></activity-editor>
+    <activity-item activity-beendet="$ctrl.deleteActivity(activityItem)" ng-repeat="activity in $ctrl.activities track by $index" activity-item="activity"></activity-item>
+    <hr>
+    <div flex layout-padding>
+        <div layout="row">
+            <div flex="25"></div>
+            <div flex="40">
+                <h3>Gesamtdauer</h3>
+            </div>
+            <div flex="25">
+                <h3>{{ $ctrl.gesamtDauer() | date : 'HH:mm:ss' : 'UTC' }}</h3>
+            </div>
+            <div flex="10"></div>
+        </div>
+    </div>
+</div>
